@@ -48,3 +48,4 @@ public class tfrAdapter extends RecyclerView.Adapter<tfrAdapter.trfViewHolder>{
         }
     }
 }
+

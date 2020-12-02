@@ -34,6 +34,7 @@ public class transaccion extends AppCompatActivity {
     EditText saldo, cuentadest, valor, hora, fecha;
     Button cerrar, transferir, regresar_tr;
     String NroCtaOrigen, date, time;
+    int saldoCuenta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class transaccion extends AppCompatActivity {
         NroCtaOrigen = getIntent().getStringExtra("Nrocuenta");
         saldo.setEnabled(false);
         saldo.setText(getIntent().getStringExtra("saldo"));
+        saldoCuenta = Integer.parseInt(getIntent().getStringExtra("saldo"));
         date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         fecha.setEnabled(false);
         fecha.setText(date);
@@ -98,21 +100,30 @@ public class transaccion extends AppCompatActivity {
 
     private void transferir(String mcuentadest, String mvalor) {
         //Toast.makeText(this, "Hecho", Toast.LENGTH_SHORT).show();
-        String url = "http://192.168.1.6/banco/agregarTrf.php";
+        if(NroCtaOrigen.equals(cuentadest.getText().toString().trim())){
+            Toast.makeText(this, "La cuenta destino debe ser diferente a la cuenta de origen", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(saldoCuenta-Integer.parseInt(valor.getText().toString().trim()) < 10000){
+            Toast.makeText(this, "No posee fondos para transferir este monto", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String url = "http://192.168.1.3/banco/agregarTrf.php";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 if (response.equals("1")) {
-                    Toast.makeText(transaccion.this, "Transferencia realizada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(transaccion.this, "Transaccion realizada", Toast.LENGTH_SHORT).show();
+                    saldoCuenta -= Integer.parseInt(valor.getText().toString().trim());
+                    saldo.setText(String.valueOf(saldoCuenta));
                     cuentadest.setText("");
                     valor.setText("");
                     hora.setText("");
                     fecha.setText(date);
-                    saldo.setText(getIntent().getStringExtra("saldo"));
                     cuentadest.requestFocus();
-                } else if (response.equals("2")) {
-                    Toast.makeText(transaccion.this, "Saldo insuficiente", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
                     Toast.makeText(transaccion.this, "La cuenta de destino no existe", Toast.LENGTH_SHORT).show();
                 }
             }

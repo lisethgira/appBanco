@@ -68,7 +68,7 @@ public class reporteTrf extends AppCompatActivity implements Response.Listener<J
     }
 
     private void cargarWebService() {
-        String url="http://192.168.1.6/banco/listarTrf.php?usuario="+user;
+        String url="http://192.168.1.3/banco/listarTrf.php?usuario="+user;
         jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
     }

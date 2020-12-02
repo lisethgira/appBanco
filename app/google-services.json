@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1055761222187",
+    "firebase_url": "https://bancodeoriente-fb.firebaseio.com",
+    "project_id": "bancodeoriente-fb",
+    "storage_bucket": "bancodeoriente-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055761222187:android:3a2b00a642e31ed755b86e",
+        "android_client_info": {
+          "package_name": "com.example.appbanco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055761222187-t5r0n56n9p5kal1vqpqnm3ap2tlslcpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWw1c5p4UQPt3DYdDz8L8GohTbya_3DD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055761222187-t5r0n56n9p5kal1vqpqnm3ap2tlslcpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055761222187:android:1a03158b264984ac55b86e",
+        "android_client_info": {
+          "package_name": "com.example.bancodeoriente_fb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055761222187-t5r0n56n9p5kal1vqpqnm3ap2tlslcpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWw1c5p4UQPt3DYdDz8L8GohTbya_3DD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055761222187-t5r0n56n9p5kal1vqpqnm3ap2tlslcpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
